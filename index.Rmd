@@ -1,0 +1,22 @@
+---
+title: "Main page"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# This is Lunbei's website
+Hi there! 
+
+My name is Lunbei Hu, and I am currently a 2nd year MPH Biostatistics student from Columbia University.
+
+<img src="images/owl.jpeg" style="width:50%">
+
+# Link to About me
+If you want to know more about my academic and professional experience, please click:
+
+[About me](about.html)
+
+
+
