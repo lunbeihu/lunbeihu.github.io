@@ -1,0 +1,35 @@
+---
+title: "About me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+# My academic and professional experience
+
+## Education
+**Columbia University, Mailman School of Public Health;** New York, NY			     
+Master of Public Health in Biostatistics, Health of an Aging Society Certificate
+
+**Boston College, Morrissey College of Arts and Sciences;** Chestnut Hill, MA          
+Bachelor of Arts in Psychology and Economics                               
+Undergraduate Research Fellowship, Dean’s List First Honors
+
+## Work experience
+**Center of Retirement Research, Boston College;** Chestnut Hill, MA                        
+_Undergraduate Research Assistant_                                       
+
+Merged, collapsed, and cleaned 2017 census data using STATA to compare the actual and reported retirement household income in order for director to write a brief on household financial security. 
+Gathered 1976-2017 birth data across racial groups and education levels from CDC National Vital Statistics Reports using Excel to assist analyzing whether the drop in fertility rate is temporary or permanent.
+
+## Research experience
+**Robert N Butler Columbia Aging Center, Columbia University;** New York, NY          
+_Research Assistant_
+
+Conduct data analysis and visualization to document changes in age-patterning of disability and mortality risk from the 1960s to the present in US National Health Interview Study (NHIS) using SAS.
+Attend weekly meeting, prepare a report and collaborate on developing a manuscript for publication.
+
+## Skills
+**Computer:** Microsoft Office Suite, SAS, R, SQL, SPSS, Python, STATA, LaTeX
+
+**Language:** Mandarin, Spanish, Japanese
