@@ -1,0 +1,81 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Loading data
+
+We're gonna look at Instacart data.
+
+```{r, message=FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+
+data("instacart")
+```
+
+
+# Plotly plots
+
+## Scatterplot
+
+This plot shows the number of items ordered in each department, lowest to highest.
+
+```{r, warning=FALSE}
+instacart %>% 
+  count(department) %>% 
+  mutate(
+    department = factor(department),
+    department = fct_reorder(department, n)
+  ) %>% 
+  plot_ly(
+    x = ~department, y = ~n,  
+    alpha = .5, type = "scatter", mode = "markers")
+```
+
+## Bar plot
+
+This plot shows the number of items ordered in beverage and snacks aisle, lowest to highest under each department.
+
+```{r}
+aisle_df =
+instacart %>%
+  group_by(department) %>% 
+  count(aisle) %>% 
+  filter(department == "beverages" | department == "snacks") %>% 
+  mutate(
+    aisle = factor(aisle),
+    aisle = fct_reorder(aisle, n)  
+  ) 
+
+aisle_df %>% 
+  mutate(text_label = str_c("Department: ", department)) %>% 
+  plot_ly(
+    x = ~aisle, y = ~n, color = ~department, text = ~text_label, 
+    alpha = .5, type = "bar", colors = "viridis") 
+```
+
+## Line plot
+
+This plot shows the number of orders placed in each hour of the day on weekends (Friday, Saturday, Sunday).
+
+```{r}
+dow_df = 
+  instacart %>% 
+  mutate(order_dow = factor(order_dow)) %>% 
+  filter(order_dow == '5' | order_dow == '6' | order_dow == '0') %>% 
+  group_by(order_dow, order_hour_of_day) %>% 
+  count(order_hour_of_day) 
+
+dow_df %>% 
+  ungroup() %>% 
+  plot_ly(
+    x = ~order_hour_of_day, y = ~n, color = ~order_dow,
+    type = "scatter", mode = "lines+markers", colors = "viridis")
+ 
+```
+
