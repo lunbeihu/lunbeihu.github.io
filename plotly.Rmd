@@ -34,7 +34,9 @@ instacart %>%
   ) %>% 
   plot_ly(
     x = ~department, y = ~n,  
-    alpha = .5, type = "scatter", mode = "markers")
+    alpha = .5, type = "scatter", mode = "markers") %>% 
+  layout(yaxis = list(title = "number of items ordered"))
+ 
 ```
 
 ## Bar plot
@@ -56,7 +58,8 @@ aisle_df %>%
   mutate(text_label = str_c("Department: ", department)) %>% 
   plot_ly(
     x = ~aisle, y = ~n, color = ~department, text = ~text_label, 
-    alpha = .5, type = "bar", colors = "viridis") 
+    alpha = .5, type = "bar", colors = "viridis") %>% 
+  layout(yaxis = list(title = "number of items ordered")) 
 ```
 
 ## Line plot
@@ -66,8 +69,13 @@ This plot shows the number of orders placed in each hour of the day on weekends 
 ```{r}
 dow_df = 
   instacart %>% 
-  mutate(order_dow = factor(order_dow)) %>% 
-  filter(order_dow == '5' | order_dow == '6' | order_dow == '0') %>% 
+  filter(order_dow == '0' | order_dow == '1' | order_dow == '6') %>% 
+  mutate(
+    order_dow = recode(order_dow,
+         "0" = "Saturday",
+         "1" = "Sunday",
+         "6" = "Friday"),
+    order_dow = factor(order_dow)) %>% 
   group_by(order_dow, order_hour_of_day) %>% 
   count(order_hour_of_day) 
 
@@ -75,7 +83,10 @@ dow_df %>%
   ungroup() %>% 
   plot_ly(
     x = ~order_hour_of_day, y = ~n, color = ~order_dow,
-    type = "scatter", mode = "lines+markers", colors = "viridis")
+    type = "scatter", mode = "lines+markers", colors = "viridis") %>% 
+  layout(
+    xaxis = list(title = "hour of the day"),
+    yaxis = list(title = "number of items ordered"))
  
 ```
 
