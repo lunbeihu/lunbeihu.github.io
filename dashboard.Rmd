@@ -19,7 +19,7 @@ library(flexdashboard)
 Column {data-width=300}
 -----------------------------------------------------------------------
 
-### Chart A
+### Number of items ordered in each department
 
 ```{r}
 data("instacart")
@@ -39,7 +39,7 @@ instacart %>%
 
 Column {data-width=350}
 -----------------------------------------------------------------------
-### Chart B
+### Number of items ordered in beverage and snacks aisle
 
 ```{r}
 aisle_df =
@@ -64,7 +64,7 @@ aisle_df %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart C
+### Number of orders placed in each hour on weekends
 
 ```{r}
 dow_df = 
